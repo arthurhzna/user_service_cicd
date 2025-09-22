@@ -22,7 +22,7 @@ pipeline {
             returnStdout: true
           ).trim()
  
-          echo "Commit Message: ${commitMessage}"
+          echo "Commit Message: ${commitMessage}" 
           if (commitMessage.contains("[skip ci]")) {
             echo "Skipping pipeline due to [skip ci] tag in commit message."
             currentBuild.result = 'ABORTED'
