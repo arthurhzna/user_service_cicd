@@ -21,7 +21,7 @@ pipeline {
             script: "git log -1 --pretty=%B",
             returnStdout: true
           ).trim()
-
+ 
           echo "Commit Message: ${commitMessage}"
           if (commitMessage.contains("[skip ci]")) {
             echo "Skipping pipeline due to [skip ci] tag in commit message."
