@@ -121,7 +121,7 @@ pipeline {
         script {
           def targetDir = "/home/arthurhozanna123/go/user-service"
           def sshCommandToServer = """
-          ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${USERNAME}@${HOST} '
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${USERNAME}@${HOST} '
             if [ -d "${targetDir}/.git" ]; then
                 echo "Directory exists. Pulling latest changes."
                 cd "${targetDir}"
