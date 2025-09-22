@@ -7,7 +7,7 @@ pipeline {
     GITHUB_CREDENTIALS = credentials('github-credential')
     SSH_KEY = credentials('ssh-key')
     HOST = credentials('host')
-    USERNAME = credentials('username')
+    USERNAME = credentials('username')  
     CONSUL_HTTP_URL = credentials('consul-http-url')
     CONSUL_HTTP_TOKEN = credentials('consul-http-token')
     CONSUL_WATCH_INTERVAL_SECONDS = 60
@@ -121,7 +121,7 @@ pipeline {
         script {
           def targetDir = "/home/arthurhozanna123/go/user-service"
           def sshCommandToServer = """
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${USERNAME}@${HOST} '
+          ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${USERNAME}@${HOST} '
             if [ -d "${targetDir}/.git" ]; then
                 echo "Directory exists. Pulling latest changes."
                 cd "${targetDir}"
