@@ -13,7 +13,7 @@ RUN go mod tidy
 
 RUN make build
 
-FROM alpine:latestgo
+FROM alpine:latest
 
 RUN apk update && apk upgrade && \
     apk --update --no-cache add tzdata && \
