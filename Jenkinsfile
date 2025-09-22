@@ -20,7 +20,7 @@ pipeline {
           def commitMessage = sh(
             script: "git log -1 --pretty=%B",
             returnStdout: true
-          ).trim() 
+          ).trim()  
  
           echo "Commit Message: ${commitMessage}" 
           if (commitMessage.contains("[skip ci]")) {
