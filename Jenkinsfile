@@ -125,22 +125,22 @@ pipeline {
           script {
             def sshCommandToServer = """
             ssh -o StrictHostKeyChecking=no -i ${SSH_KEY} ${USERNAME}@${HOST} '
-              if [ -d "/home/arthurhozanna123/go/user-service/.git" ]; then
+              if [ -d "/home/arthurhozana123/go/user-service/.git" ]; then
                   echo "Directory exists. Pulling latest changes."
-                  cd "/home/arthurhozanna123/go/user-service"
+                  cd "/home/arthurhozana123/go/user-service"
                   git pull origin "master"
               else
                   echo "Directory does not exist. Cloning repository."
-                  git clone -b "master" git@github.com:arthurhzna/user_service_cicd.git "/home/arthurhozanna123/go/user-service"
-                  cd "/home/arthurhozanna123/go/user-service"
+                  git clone -b "master" git@github.com:arthurhzna/user_service_cicd.git "/home/arthurhozana123/go/user-service"
+                  cd "/home/arthurhozana123/go/user-service"
               fi
 
               cp .env.example .env
-              sed -i "s/^TIMEZONE=.*/TIMEZONE=Asia\\/Jakarta/" "/home/arthurhozanna123/go/user-service/.env"
-              sed -i "s/^CONSUL_HTTP_URL=.*/CONSUL_HTTP_URL=${CONSUL_HTTP_URL}/" "/home/arthurhozanna123/go/user-service/.env"
-              sed -i "s/^CONSUL_HTTP_PATH=.*/CONSUL_HTTP_PATH=backend\\/user-service/" "/home/arthurhozanna123/go/user-service/.env"
-              sed -i "s/^CONSUL_HTTP_TOKEN=.*/CONSUL_HTTP_TOKEN=${CONSUL_HTTP_TOKEN}/" "/home/arthurhozanna123/go/user-service/.env"
-              sed -i "s/^CONSUL_WATCH_INTERVAL_SECONDS=.*/CONSUL_WATCH_INTERVAL_SECONDS=60/" "/home/arthurhozanna123/go/user-service/.env"
+              sed -i "s/^TIMEZONE=.*/TIMEZONE=Asia\\/Jakarta/" "/home/arthurhozana123/go/user-service/.env"
+              sed -i "s/^CONSUL_HTTP_URL=.*/CONSUL_HTTP_URL=${CONSUL_HTTP_URL}/" "/home/arthurhozana123/go/user-service/.env"
+              sed -i "s/^CONSUL_HTTP_PATH=.*/CONSUL_HTTP_PATH=backend\\/user-service/" "/home/arthurhozana123/go/user-service/.env"
+              sed -i "s/^CONSUL_HTTP_TOKEN=.*/CONSUL_HTTP_TOKEN=${CONSUL_HTTP_TOKEN}/" "/home/arthurhozana123/go/user-service/.env"
+              sed -i "s/^CONSUL_WATCH_INTERVAL_SECONDS=.*/CONSUL_WATCH_INTERVAL_SECONDS=60/" "/home/arthurhozana123/go/user-service/.env"
               sudo docker compose up -d --build --force-recreate
             '
             """
